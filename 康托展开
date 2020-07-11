@@ -1,0 +1,44 @@
+思路：1.了解康托展开式具体形式
+　　　2.利用双重循坏实现每个数字的比较，并用count记录每个数字在剩下的数字中排第几位
+      3.写一个求阶乘的函数；
+      4.用sum求和
+遇到的问题：输入n之后，要写一个getchar()来获得空格键。
+#include<stdio.h>
+int product(int n);
+int main(void)
+{
+   int i,j,n,sum=0,count,index,x,a;
+   char s[10];
+   printf("iuput n:\n");
+   scanf("%d",&n);
+   getchar();
+   printf("input numbers:\n");
+   for(i=0;i<n;i++)
+   {
+   	scanf("%c",&s[i]);
+   }
+   for(j=0;j<n;j++)
+   {
+   	 index=j;
+   	 count=0;
+     for(i=j+1;i<n;i++)
+     {
+    	if(s[index]>s[i])
+   	      count=count+1;
+     }
+    a=product(n-j-1);
+    x=a*count;
+    sum=sum+x;
+   }
+  printf("展开式的值是:%d\n",sum);
+   return 0;
+}
+int product(int n)
+{
+	int product=1,i;
+	for(i=1;i<=n;i++)
+	{
+		product=product*i;
+	}
+	return product;
+}
