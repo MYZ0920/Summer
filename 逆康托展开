@@ -1,0 +1,53 @@
+思路：找出第96个数
+首先用96-1得到95
+用95去除4! 得到3余23
+用23去除3! 得到3余5
+用5去除2!得到2余1
+用1去除1!得到1余0
+有3个数比它小的数是4
+所以第一位是4
+有3个数比它小的数是4但4已经在之前出现过了所以是5（因为4在之前出现过了所以实际比5小的数是3个）
+有2个数比它小的数是3
+有1个数比它小的数是2
+遇到的问题：处理“但4已经在之前出现过了所以是5”这个问题。
+“for(i=0;i<n;i++)
+	  s[i]=i+1;
+
+if(a!=(n-i-1));
+	  for(j=a;j<n;j++)
+	    s[j]=s[j+1];”
+#include<stdio.h>
+int product(int n);
+int main(void)
+{
+	int n,k,i,j,a,b;
+	char x[10],s[10];
+	printf("input n,k:\n");
+	scanf("%d%d",&n,&k);
+	for(i=0;i<n;i++)
+	  s[i]=i+1;
+	k=k-1;
+    for(i=0;i<n;i++)
+    {
+	  a=k/product(n-i-1);
+	  b=k%product(n-i-1);
+	  x[i]=s[a];
+	  if(a!=(n-i-1));
+	  for(j=a;j<n;j++)
+	    s[j]=s[j+1];
+	  k=b;
+    }
+    printf("第k个组合数是:\n");
+    for(i=0;i<n;i++)
+     printf("%d ",x[i]);
+	return 0;
+}
+int product(int n)
+{
+	int product=1,i;
+	for(i=1;i<=n;i++)
+	{
+		product=product*i;
+	}
+	return product;
+}
