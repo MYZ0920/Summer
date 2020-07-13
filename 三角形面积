@@ -1,0 +1,14 @@
+思路：s=根号下p*(p-a)*(p-b)*(p-c),其中p=1/2(a+b+c)
+#include<stdio.h>
+#include<math.h>
+int main(void)
+{
+	int a,b,c;
+	double p,s;
+	printf("输入三角形三边边长a,b,c:\n");
+	scanf("%d%d%d",&a,&b,&c);
+	p=1.0/2*(a+b+c);
+	s=sqrt(p*(p-a)*(p-b)*(p-c)) ;
+	printf("三角形面积是:%.2lf",s);
+    return 0;
+}
