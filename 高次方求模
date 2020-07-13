@@ -1,0 +1,19 @@
+思路：公式 n%m=(n1%m*n2%m... ...)%m
+#include<stdio.h>
+#include<math.h>
+int main(void)
+{
+	int m,n,p,x,result=1;
+	printf("input m,n,p:\n");
+	scanf("%d%d%d",&m,&n,&p);
+	m=m%p;
+     while(n>0)
+    {
+        if(n%2==1)
+            result=result*m%p;
+        n=n/2;
+        m=m*m%p;
+    }
+    printf("取模结果为：%d",result);
+    return 0;
+}
