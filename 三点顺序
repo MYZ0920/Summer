@@ -1,0 +1,17 @@
+思路：如果x1-x2和x1-x3的乘积大于0，则为顺时针；如果乘积小于0，则为逆时针
+#include<stdio.h>
+int main(void)
+{
+	double x1,y1,x2,y2,x3,y3,a,b,c;
+	printf("输入三个点的坐标:\n");
+	scanf("%lf%lf%lf%lf%lf%lf",&x1,&y1,&x2,&y2,&x3,&y3);
+	a=x1-x2;
+	b=x1-x3;
+	if(a*b>0)
+	 printf("三点顺序是顺时针\n");
+	else if(a*b<0)
+	 printf("三点顺序是逆时针\n");
+	else
+	 printf("三点共线\n");
+    return 0;
+}
