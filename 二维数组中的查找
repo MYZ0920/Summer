@@ -1,0 +1,27 @@
+在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+	int a[20][20],i,j,x,n,flag=0;
+	printf("输入n:\n");
+	scanf("%d",&n);
+	scanf("%d",&x);
+	for(i=0;i<n;i++)
+	{
+	  for(j=0;i<n;j++)
+	     {
+		   scanf("%d",&a[i][j]);
+		   if(x==a[i][j])
+		   {
+		   	printf("true\n");
+		   	flag=1;
+		   	break;
+		   }
+	     }
+	}
+	if(flag==1)
+	 printf("false\n");
+	return 0;
+}
