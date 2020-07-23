@@ -1,0 +1,28 @@
+思路：先找到变化点，找到后停止搜索，再使用二分查找
+#include<stdio.h>
+int main(void)
+{
+	int a[10],i;
+	int mid,left=0,right=9;
+	printf("请输入旋转排序数组:\n");
+	for(i=0;i<10;i++)
+	 scanf("%d",&a[i]);
+	mid=(left+right)/2;
+	while(a[mid]>a[mid-1]&&a[mid]<a[mid+1])
+	{
+		if(a[mid]<a[0])
+	    {
+	    	right=mid-1;
+		}
+		else
+		{
+			left=mid+1;
+		}
+		mid=(left+right)/2;
+	}
+	if(a[mid]>a[mid+1])
+	  printf("最小元素是:%d",a[mid+1]);
+	else if(a[mid]<a[mid-1])
+	  printf("最小元素是:%d",a[mid]);
+	return 0;
+}
