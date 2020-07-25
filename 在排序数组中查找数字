@@ -1,0 +1,20 @@
+统计一个数字在排序数组中出现的次数。
+思路：遍历数组。
+#include<stdio.h>
+int main(void)
+{
+	int a[20],n,i,target,count=0;
+	printf("input n:\n");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	 scanf("%d",&a[i]);
+	printf("input target:\n");
+	scanf("%d",&target);
+	for(i=0;i<n;i++)
+	{
+	   if(target==a[i])
+	    count=count+1;
+	}
+	printf("count is:%d",count);
+	return 0;
+}
