@@ -1,0 +1,49 @@
+给你一个 m 行 n 列的二维网格 grid 和一个整数 k。你需要将 grid 迁移 k 次。
+
+每次「迁移」操作将会引发下述活动：
+
+
+	位于 grid[i][j] 的元素将会移动到 grid[i][j + 1]。
+	位于 grid[i][n - 1] 的元素将会移动到 grid[i + 1][0]。
+	位于 grid[m - 1][n - 1] 的元素将会移动到 grid[0][0]。
+请你返回 k 次迁移操作后最终得到的 二维网格
+思路：先将二维数组转化为一维数组，再用move函数实现一维数组中的每一个元素往右移一位，再将重新移位后的一维数组以二维数组的形式输出
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+void move(int b[],int length);
+int main(void)
+{
+	int a[20][20],b[40],m,n,k,i,j,l=0;
+	printf("input m,n,k:\n");
+	scanf("%d%d%d",&m,&n,&k);
+	for(i=0;i<m;i++)
+	 for(j=0;j<n;j++)
+	 {
+	  scanf("%d",&a[i][j]);
+	  b[l]=a[i][j];
+	  l=l+1;
+     }
+    for(i=1;i<=k;i++)
+    {
+       move(b,m*n);
+	}
+	for(i=0;i<m*n;i++)
+	{
+		if(i%m==0)
+		 printf("\n");
+		printf("%d ",b[i]);
+	}
+	return 0;
+}
+void move(int b[],int length)
+{
+	int *temp=NULL,i;
+	temp=(int *)malloc(sizeof(int));
+	for(i=length-1;i>0;i--)
+	{
+		*temp=*(b+i);
+		*(b+i)=*(b+i-1);
+		*(b+i-1)=*temp;
+	}
+}
