@@ -1,0 +1,43 @@
+数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。
+ 
+你可以假设数组是非空的，并且给定的数组总是存在多数元素。
+思路：先找到有重复出现的数字，再看其重复出现的次数是否超过数组长度的一半
+#include<stdio.h>
+int main(void)
+{
+	int a[10],i,j,n,index=0,count=1,k,flag=0;
+	printf("input n:\n");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	 scanf("%d",&a[i]);
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			if(i!=j)
+			{
+				if(a[i]==a[j])
+				{
+					for(k=j+1;k<n;k++)
+					{
+						if(a[i]==a[k])
+						  count++;
+					}
+					if(count>n/2)
+					 {
+					   printf("%d",a[i]);
+					   flag=1;
+					   break;
+				     }
+				}
+			}
+		   if(flag==1)
+		     break;
+		}
+		if(flag==1)
+		     break;
+	}
+	if(flag==0)
+	  printf("no");
+	return 0;
+}
