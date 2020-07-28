@@ -1,0 +1,30 @@
+找出数组中重复的数字。
+
+
+在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
+
+来源：力扣（LeetCode）
+思路：遍历一遍数组，看有没有重复的数字
+#include<stdio.h>
+int main(void)
+{
+	int a[10],i,j,n;
+	printf("input n:\n");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	 scanf("%d",&a[i]);
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			if(i!=j)
+			{
+			if(a[i]==a[j])
+			 {
+			    printf("%d ",a[i]);
+			 }
+		    }
+		}
+	}
+	return 0;
+}
