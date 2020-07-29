@@ -1,0 +1,19 @@
+一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。
+
+来源：力扣（LeetCode）
+思路：for(i=0;i<n;i++)如果i和a[i]中的数字不相等，则说明缺失的数字是i
+#include<stdio.h>
+int main(void)
+{
+	int a[10000],n,i;
+	printf("input n:\n");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	 scanf("%d",&a[i]);
+	for(i=0;i<n;i++)
+	{
+		if(a[i]!=i)
+		 printf("%d",i);
+	}
+	return 0;
+}
