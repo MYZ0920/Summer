@@ -1,0 +1,28 @@
+输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。
+思路：先对数组进行排序，再输出k个数
+#include<stdio.h>
+int main(void)
+{  
+    int a[10000],i,j,n,index,temp,k;
+    printf("input n:\n");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+      scanf("%d",&a[i]);
+    printf("input k:\n");
+    scanf("%d",&k);
+    for(i=0;i<n-1;i++)
+    {
+    	index=i;
+    	for(j=i+1;j<n;j++)
+    	{
+    		if(a[index]>a[j])
+    		   index=j;
+		}
+		temp=a[index];
+		a[index]=a[i];
+		a[i]=temp;
+	}
+	for(i=0;i<k;i++)
+	 printf("%d ",a[i]);
+	return 0; 
+}
