@@ -1,0 +1,21 @@
+字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串"abcdefg"和数字2，该函数将返回左旋转两位得到的结果"cdefgab"。
+
+来源：力扣（LeetCode）
+思路：切片法
+#include<stdio.h>
+int main(void)
+{
+	char a[100],b[100],k,i,n;
+	printf("input n,k:\n");
+	scanf("%d%d",&n,&k);
+	getchar();
+	for(i=0;i<n;i++)
+	 scanf("%c",&a[i]);
+	for(i=0;i<k;i++)
+	 b[i]=a[i];
+	for(i=k;i<n;i++)
+	 printf("%c",a[i]);
+	for(i=0;i<k;i++)
+	 printf("%c",b[i]);
+	return 0;
+}
