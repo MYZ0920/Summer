@@ -1,0 +1,35 @@
+在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。
+#include<stdio.h>
+int main(void)
+{
+	char s[10000];
+	int i,j,n,t=0,flag;
+	printf("input n:\n");
+	scanf("%d",&n);
+	getchar();
+	printf("input string:\n");
+    for(i=0;i<n;i++)
+     scanf("%c",&s[i]);
+    for(i=0;i<n-1;i++)
+    {
+    	flag=0;
+    	for(j=0;j<n;j++)
+    	{
+    	 if(s[i]==s[j]&&i!=j)
+    	   	{
+    	   		flag=1;
+    	   	    break;	
+			}
+	    }
+	    if(flag==0)
+	    {
+	    	printf("%c",s[i]);
+	    	t=1;
+	    	break;
+		}
+	
+	}
+	if(t==0)
+	 printf(" ");
+	return 0;
+}
