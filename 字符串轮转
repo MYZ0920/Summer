@@ -1,0 +1,39 @@
+字符串轮转。给定两个字符串s1和s2，请编写代码检查s2是否为s1旋转而成（比如，waterbottle是erbottlewat旋转后的字符串）。
+#include<stdio.h>
+#include<string.h>
+int main(void)
+{
+	int m,n,i=0,j=1,index,flag=0;
+	char s1[10000],s2[10000],s3[10000];
+	printf("input string1:\n");
+	gets(s1);
+	printf("input string2:\n");
+	gets(s2);
+	strcpy(s3,s2);
+	strcat(s3,s2);
+	while(s3!='\0')
+	  {
+	  	if(s1[0]==s2[i])
+	  	 {
+	  	   index=i;
+		   break;	
+		 }
+		i++;
+	  }
+	
+    while(s3[i]!='\0'&&s1[i]!='\0')
+	{
+		i=index+1;
+		if(s1[j]!=s3[i])
+		{
+		 printf("false");
+		 flag=1;
+		 break;
+	    }
+		j++;
+		i++;
+	}
+	if(flag==0)
+	 printf("true");
+	return 0;
+}
