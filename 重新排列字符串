@@ -1,0 +1,35 @@
+给你一个字符串 s 和一个 长度相同 的整数数组 indices 。
+
+请你重新排列字符串 s ，其中第 i 个字符需要移动到 indices[i] 指示的位置。
+
+返回重新排列后的字符串。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+	char s[10000];
+	int a[10000],i,n,k=0;
+	printf("input n:\n");
+	scanf("%d",&n);
+	getchar();
+	printf("input string:\n");
+	for(i=0;i<n;i++)
+	 scanf("%c",&s[i]);
+	getchar();
+	printf("input numbers:\n");
+	for(i=0;i<n;i++)
+	 scanf("%d",&a[i]);
+	for(i=0;i<=n+1;i++)
+	 {
+	 	if(i==n)
+	 	 i=0;
+		if(a[i]==k)
+		{
+		 printf("%c",s[i]);
+		 i=0;
+		 k=k+1;
+	    }
+	 }
+	return 0;
+} 
