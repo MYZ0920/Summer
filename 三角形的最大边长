@@ -1,0 +1,34 @@
+给定由一些正数（代表长度）组成的数组 A，返回由其中三个长度组成的、面积不为零的三角形的最大周长。
+如果不能形成任何面积不为零的三角形，返回 0。
+#include<stdio.h>
+int main(void)
+{
+	int i,j,t,n,a[10000],index,flag=0;
+	printf("input n:\n");
+	scanf("%d",&n);
+	printf("input numbers:\n");
+	for(i=0;i<n;i++)
+	 scanf("%d",&a[i]);
+	for(i=0;i<n-1;i++)
+	{
+		index=i;
+		for(j=i+1;j<n;j++)
+		 if(a[index]<a[j])
+		   index=j;
+	     t=a[index];
+	     a[index]=a[i];
+	     a[i]=t;
+	}
+	for(i=0;i<n;i++)
+	{
+		if(a[i+1]+a[i+2]>a[i])
+		 {
+		 	printf("%d",a[i]+a[i+1]+a[i+2]);
+		 	flag=1;
+		 	break;
+		 }
+	}
+	if(flag==0)
+	 printf("0");
+	return 0;
+} 
