@@ -1,0 +1,44 @@
+给定两个数组，编写一个函数来计算它们的交集。
+#include<stdio.h>
+int main(void)
+{
+	int num1[10000],num2[10000],i,j,index,m,n;
+	printf("input m,n:\n");
+	scanf("%d%d",&m,&n);
+	printf("input num1:\n");
+	for(i=0;i<m;i++)
+	 scanf("%d",&num1[i]);
+	printf("input num2:\n");
+	for(i=0;i<n;i++)
+	 scanf("%d",&num2[i]);
+	if(m>=n)
+	{
+		for(i=0;i<m;i++)
+		{
+			index=i;
+			for(j=0;j<n;j++)
+			{
+				if(num1[index]==num2[j])
+				 {
+				 	printf("%d ",num1[index]);
+				 	break;
+				 }
+			}
+		}
+	}
+	else
+	{
+		for(i=0;i<n;i++)
+		{
+			index=i;
+			for(j=0;j<m;j++)
+			{
+				if(num2[index]==num1[j])
+				 {
+				 	printf("%d ",num2[index]);
+				 	break;
+				 }
+			}
+		}
+	}
+}
