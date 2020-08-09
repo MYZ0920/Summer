@@ -1,0 +1,24 @@
+给定一个字符串 S，返回 “反转后的” 字符串，其中不是字母的字符都保留在原地，而所有字母的位置发生反转。
+#include<stdio.h>
+int main(void)
+{
+	char s[10000],*ps;
+	int n,i;
+	printf("input string:\n");
+	gets(s);
+	ps=s;
+	i=0;
+	while(s[i]!='\0')
+	{
+		n++;
+		i++;
+	}
+	for(i=0;i<n;i++)
+	{
+		if((*(ps+i)>='a'&&*(ps+i)<='z')||(*(ps+i)>='A'&&*(ps+i)<='Z'))
+		 printf("%c",*(ps+n-i-1));
+		else
+		 printf("%c",*(ps+i));
+	}
+	return 0;
+}
