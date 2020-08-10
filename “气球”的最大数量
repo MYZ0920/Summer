@@ -1,0 +1,44 @@
+给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 "balloon"（气球）。
+
+字符串 text 中的每个字母最多只能被使用一次。请你返回最多可以拼凑出多少个单词 "balloon"。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+	char s[10000],*ps;
+	int i,x,b=0,a=0,l=0,o=0,n=0,count=0;
+	printf("input string:\n");
+	gets(s);
+	i=0;
+	x=0;
+	while(s[i]!='\0')
+	{
+		i++;
+		x++;
+	}
+	for(i=0;i<x;i++)
+	{
+		if(s[i]=='b')
+		  b++;
+		else if(s[i]=='a')
+		  a++;
+		else if(s[i]=='l')
+		  l++;
+		else if(s[i]=='o')
+		  o++;
+		else if(s[i]=='n')
+		  n++;
+		if(b==1&&a==1&&l==2&&o==2&&n==1)
+		{
+			count++;
+			b=0;
+			a=0;
+			l=0;
+			o=0;
+			n=0;
+		}
+	}
+	printf("%d",count);
+	return 0;
+}
