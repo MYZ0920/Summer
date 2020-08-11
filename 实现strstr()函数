@@ -1,0 +1,48 @@
+给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+	char s1[10000],s2[10000];
+	int i,n1=0,n2=0,index,flag=0;
+	printf("input string1,string2:\n");
+	gets(s1);
+	gets(s2);
+	i=0;
+	while(s1[i]!='\0')
+	{
+		i++;
+		n1++;
+	}
+	i=0;
+	while(s2[i]!='\0')
+	{
+		i++;
+		n2++;
+	}
+	if(n2==0)
+	printf("0");
+	else
+	{
+	for(i=0;i<n1;i++)
+	{
+		if(s1[i]==s2[0])
+		{
+			index=i;
+			break;
+		}
+	}
+	for(i=index;i<n2;i++)
+	{
+		if(s1[i]!=s2[i])
+		{
+			flag=1;
+			printf("-1");
+			break;
+		}
+	}
+	if(flag==0)
+	printf("%d",index);
+    }
+}
