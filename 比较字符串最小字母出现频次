@@ -1,0 +1,38 @@
+我们来定义一个函数 f(s)，其中传入参数 s 是一个非空字符串；该函数的功能是统计 s  中（按字典序比较）最小字母的出现频次。
+
+例如，若 s = "dcce"，那么 f(s) = 2，因为最小的字母是 "c"，它出现了 2 次。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+	char s[10000],t;
+	int i,j,n,index,count=1;
+	printf("input string:\n");
+	gets(s);
+	i=0;
+	n=0;
+	while(s[i]!='\0')
+	{
+		i++;
+		n++;
+	}
+	for(i=0;i<n-1;i++)
+	{
+		index=i;
+		for(j=i+1;j<n;j++)
+		 if(s[index]>s[j])
+		   index=j;
+		t=s[index];
+		s[index]=s[i];
+		s[i]=t;
+	}
+	i=1;
+	while(s[i]==s[0])
+	{
+		count++;
+		i++;
+	}
+	printf("%d",count);
+	return 0;
+}
