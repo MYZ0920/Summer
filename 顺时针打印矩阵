@@ -1,0 +1,28 @@
+输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字
+#include<stdio.h>
+int main(void)
+{
+	int a[100][100];
+	int i,j,k,l,o,m,n,min;
+	printf("input m,n:\n");
+	scanf("%d%d",&m,&n);
+	min=(m<=n)?m: n;
+	printf("输入数组:\n");
+	for(i=0;i<m;i++)
+	  for(j=0;j<n;j++)
+	   scanf("%d",&a[i][j]);
+	for(i=0;i<=min-2;i++)
+	{
+		for(j=i;j<n-i;j++)
+		 printf("%d ",a[i][j]);
+		if(j==n)
+		 for(k=i+1;k<m-i;k++)
+		  printf("%d ",a[k][n-1]);
+		if(k==m)
+		 for(l=n-2;l>=i;l--)
+		  printf("%d ",a[m-i-1][l]);
+		if(l==i-1)
+		  for(o=m-i-2;o>=i+1;o--)
+		    printf("%d ",a[o][i]);
+	}
+}
