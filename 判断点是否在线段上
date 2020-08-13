@@ -1,0 +1,25 @@
+思路：判断点是否在线段上 1.x*q2-y*q1=0；
+                       2.x3>=x1&&x3<=x2&&y3>=y1&&y3<=y2
+#include<stdio.h>
+int main(void)
+{
+	double x1,y1,x2,y2,x3,y3,q1,q2,x,y;
+	printf("input q1,q2:\n");
+	scanf("%lf%lf%lf%lf",&x1,&y1,&x2,&y2);
+	printf("input x:\n");
+	scanf("%lf%lf",&x3,&y3);
+	q1=x2-x1;
+	q2=y2-y1;
+	if(x3>=x1&&x3<=x2&&y3>=y1&&y3<=y2)
+	{
+		x=x3-x1;
+		y=y3-y1;
+		if(x*q2-y*q1==0)
+		 printf("yes");
+		else
+		 printf("no");
+	}
+	else
+	  printf("no");
+	return 0;
+}
