@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<math.h>
+int main(void)
+{
+	double x1,y1,x2,y2,x3,y3,x4,y4,a,b,r,l,w,s,x,y,m,n,p,q;
+	printf("按顺时针方向输入矩形的四个点:\n");
+	scanf("%lf%lf%lf%lf%lf%lf%lf%lf",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4);
+	printf("输入圆的圆心，半径:\n");
+	scanf("%lf%lf%lf",&a,&b,&r);
+	l=(x4-x1)/2;
+	w=(y2-y1)/2;
+	s=r+l/2;
+	m=(l>a)?l:a;
+	n=(l<a)?l:a;
+	x=m-n;
+	p=(w>b)?w:b;
+	q=(w<b)?w:b;
+	y=p-q;
+	if(sqrt(pow(x,2)+pow(y,2))<=s)
+	  printf("圆和矩形相交"); 
+	else
+	  printf("圆和矩形相离");
+	return 0;
+}
