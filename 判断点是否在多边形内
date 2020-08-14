@@ -1,0 +1,35 @@
+#include<stdio.h>
+struct POINT
+{
+	double x,y;
+};
+int main(void)
+{
+	int i,j;
+   POINT p,p1,p2;
+   int nCount=0;
+   int ptPolygon[100];
+   int nCross = 0;
+   scanf("%d",&ncount);
+   for(i=0;i<ncount;i++)
+    for(j=0;j<2;j++)
+     scanf("%d",&ptPolygon[i][j]);
+   for ( i = 0; i < nCount; i++)
+  {
+    POINT p1 = ptPolygon[i];
+    POINT p2 = ptPolygon[(i + 1) % nCount];
+    if ( p1.y == p2.y ) 
+         continue;
+    if ( p.y < (p1.y< p2.y)?p1.y:p2.y ) 
+         continue;
+    if ( p.y >= (p1.y> p2.y)?p1.y :p2.y ) 
+         continue;
+     double x = (double)(p.y - p1.y) * (double)(p2.x - p1.x) / (double)(p2.y - p1.y) + p1.x;
+    if ( x > p.x )
+        nCross++; 
+  }
+    if(nCross % 2 == 1)
+     printf("点在多边形内");
+	else
+	 printf("点在多边形外"); 
+}
