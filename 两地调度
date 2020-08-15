@@ -1,0 +1,37 @@
+公司计划面试 2N 人。第 i 人飞往 A 市的费用为 costs[i][0]，飞往 B 市的费用为 costs[i][1]。
+
+返回将每个人都飞到某座城市的最低费用，要求每个城市都有 N 人抵达。
+
+来源：力扣（LeetCode）
+思路：贪心算法
+#include<stdio.h>
+int main(void)
+{
+	int costs[100][2],n,i,j,minCost=0,price[100],index,t;
+	printf("input n:\n");
+	scanf("%d",&n);
+	printf("input costs:\n");
+    for(i=0;i<n;i++)
+      for(j=0;j<2;j++)
+        scanf("%d",&costs[i][j]);
+    for(i=0;i<n;i++)
+    {
+    	price[i]=costs[i][0]-costs[i][1];
+	}
+	for(i=0;i<n;i++)
+	{
+		index=i;
+		for(j=i+1;j<n;j++)
+		  if(price[index]>price[j])
+		    index=j;
+		t=price[index];
+		price[index]=price[i];
+		price[i]=t;
+		if(i<=n/2)
+		minCost=minCost+costs[index][0];
+		else
+		minCost=minCost+costs[index][1];
+	}
+	printf("%d",minCost);
+	return 0;
+}
