@@ -1,0 +1,50 @@
+有一堆石头，每块石头的重量都是正整数。
+
+每一回合，从中选出两块 最重的 石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x <= y。那么粉碎的可能结果如下：
+
+
+	如果 x == y，那么两块石头都会被完全粉碎；
+	如果 x != y，那么重量为 x 的石头将会完全粉碎，而重量为 y 的石头新重量为 y-x。
+
+
+最后，最多只会剩下一块石头。返回此石头的重量。如果没有石头剩下，就返回 0。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+	int a[1000],i,j,k,n,index,t,l,m;
+	printf("input n:\n");
+	scanf("%d",&n);
+	printf("input a:\n");
+	for(i=0;i<n;i++)
+	 scanf("%d",&a[i]);
+	for(k=1;k<=n/2+1;k++)
+	{
+		for(i=0;i<n-1;i++)
+		{
+			index=i;
+			for(j=i+1;j<n;j++)
+			 if(a[index]<a[j])
+			   index=j;
+			t=a[index];
+			a[index]=a[i];
+			a[i]=t;
+		}
+		if(a[0]==a[1])
+		{
+			for(l=0;l<n-2;l++)
+			{
+				a[l]=a[l+2];
+			}
+		}
+		else
+		{
+			a[0]=a[0]-a[1];
+			for(m=1;m<n;m++)
+			 a[m]=a[m+1];
+		}
+	}
+	printf("%d",a[0]);
+	return 0; 
+}
