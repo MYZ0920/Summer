@@ -1,0 +1,20 @@
+给定一个整数 n，返回 n! 结果尾数中零的数量。
+#include<stdio.h>
+int main(void)
+{
+	int n,product=1,i,count=0,t;
+	printf("input n:\n");
+	scanf("%d",&n);
+	for(i=1;i<=n;i++)
+	 product=product*i;
+	while(product>0)
+	{
+		t=product%10;
+		if(t==0)
+		 count++;
+		product=product/10;
+	}
+	printf("%d",count);
+	return 0;
+	 
+}
