@@ -1,0 +1,21 @@
+给定一个正整数，返回它在 Excel 表中相对应的列名称。
+#include<stdio.h>
+int main(void)
+{
+	int n,count,t,i;
+	printf("input n:\n");
+	scanf("%d",&n);
+	t=n%26;
+	count=n/26;
+	if(n<=26)
+	 printf("%c",'A'+t-1);
+	else
+	{
+		for(i=1;i<=count;i++)
+		{
+			printf("%c",'A'+count-1);
+			printf("%c",'A'+t-1);
+		}
+	}
+	return 0;
+}
