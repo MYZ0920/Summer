@@ -1,0 +1,27 @@
+给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
+#include<stdio.h>
+int main(void)
+{
+	int n,i,j,a[100][100];
+	printf("input n:\n");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<=i;j++)
+		{
+		 if(j==i||j==0)
+		  {
+		  	a[i][j]=1;
+		  }
+		 else
+		  a[i][j]=a[i-1][j-1]+a[i-1][j];
+	    }
+	}
+	for(i=0;i<n;i++)
+	{
+	  for(j=0;j<=i;j++)
+	    printf("%d ",a[i][j]);
+	  printf("\n");
+    }
+	return 0;
+}
