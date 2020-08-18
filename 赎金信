@@ -1,0 +1,43 @@
+给定一个赎金信 (ransom) 字符串和一个杂志(magazine)字符串，判断第一个字符串 ransom 能不能由第二个字符串 magazines 里面的字符构成。如果可以构成，返回 true ；否则返回 false。
+
+(题目说明：为了不暴露赎金信字迹，要从杂志上搜索各个需要的字母，组成单词来表达意思。杂志字符串中的每个字符只能在赎金信字符串中使用一次。)
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+	char s1[100],s2[100],flag;
+	int i,j,n1=0,n2=0;
+	printf("input s1,s2:\n");
+	gets(s1);
+	gets(s2);
+	i=0;
+	while(s1[i]!='\0')
+	{
+		i++;
+		n1++;
+	}
+	i=0;
+	while(s2[i]!='\0')
+	{
+		i++;
+		n2++;
+	}
+	for(i=0;i<n1;i++)
+	{
+		flag=0;
+		for(j=0;j<n2;j++)
+		{
+			if(s1[i]==s2[j])
+			{
+			  s2[j]=s2[j+1];
+			  flag=1;
+		    }
+		}
+	}
+	if(flag==1)
+	 printf("true");
+	else
+	 printf("false");
+	return 0;
+}
