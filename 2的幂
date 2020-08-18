@@ -1,0 +1,28 @@
+给定一个整数，编写一个函数来判断它是否是 2 的幂次方。
+#include<stdio.h>
+int main(void)
+{
+	int n,t,flag=0;
+	printf("input n:\n");
+	scanf("%d",&n);
+	if(n==1)
+	 printf("true");
+	else
+	{
+	t=n%2;
+	while(t==0)
+	{
+		n=n/2;
+		t=n%2;
+		if(n==1)
+		{
+			printf("true");
+			flag=1;
+			break;
+		}
+	}
+	if(flag==0)
+	 printf("false");
+    }
+	return 0;
+}
