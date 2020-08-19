@@ -1,0 +1,17 @@
+给定一个数字 n，找出可形成完整阶梯行的总行数。
+n 是一个非负整数，并且在32位有符号整型的范围内
+#include<stdio.h>
+int main(void)
+{
+	int n,count=0,i=1;
+	printf("input n:\n");
+	scanf("%d",&n);
+	while(n>=i)
+	{
+		count++;
+		n=n-i;
+		i++;
+	}
+	printf("%d",count);
+	return 0;
+}
