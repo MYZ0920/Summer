@@ -1,0 +1,62 @@
+给定平面上 n 对不同的点，“回旋镖” 是由点表示的元组 (i, j, k) ，其中 i 和 j 之间的距离和 i 和 k 之间的距离相等（需要考虑元组的顺序）。
+
+找到所有回旋镖的数量。你可以假设 n 最大为 500，所有点的坐标在闭区间 [-10000, 10000] 中。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+#include<math.h>
+int main(void)
+{
+	double a[3][2],s1,s2,s3,s4;
+	int i,j;
+	printf("input a:\n");
+	for(i=0;i<3;i++)
+	 for(j=0;j<2;j++)
+	  scanf("%d",&a[i][j]);
+	s1=a[0][0]-a[1][0];
+	s2=a[0][1]-a[1][1];
+	s3=a[0][0]-a[2][0];
+	s4=a[0][1]-a[2][1];
+	if(sqrt(pow(s1,2)+pow(s2,2))==sqrt(pow(s3,2)+pow(s4,2)))
+	 {
+	 	for(i=0;i<3;i++)
+	 	{
+	 		for(j=0;j<2;j++)
+	 		 printf("%d ",a[i][j]);
+	 		printf("\n");
+		}
+	 }
+	s1=a[1][0]-a[2][0];
+	s2=a[1][1]-a[2][1];
+	s3=a[1][0]-a[0][0];
+	s4=a[1][1]-a[0][1];
+	if(sqrt(pow(s1,2)+pow(s2,2))==sqrt(pow(s3,2)+pow(s4,2)))
+	 {
+	 	for(i=1;i<3;i++)
+	 	{
+	 		for(j=0;j<2;j++)
+	 		 printf("%d ",a[i][j]);
+	 		printf("\n");
+		}
+		for(j=0;j<2;j++)
+		 printf("%d ",a[0][j]);
+		printf("\n");
+	 }
+	s1=a[2][0]-a[0][0];
+	s2=a[2][1]-a[0][1];
+	s3=a[2][0]-a[1][0];
+	s4=a[2][1]-a[1][1];
+	if(sqrt(pow(s1,2)+pow(s2,2))==sqrt(pow(s3,2)+pow(s4,2)))
+	 {
+	 	for(j=0;j<2;j++)
+		 printf("%d ",a[2][j]);
+		printf("\n");
+	 	for(i=0;i<2;i++)
+	 	{
+	 		for(j=0;j<2;j++)
+	 		 printf("%d ",a[i][j]);
+	 		printf("\n");
+		}
+	 }
+	 return 0;
+}
