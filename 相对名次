@@ -1,0 +1,32 @@
+给出 N 名运动员的成绩，找出他们的相对名次并授予前三名对应的奖牌。前三名运动员将会被分别授予 “金牌”，“银牌” 和“ 铜牌”（"Gold Medal", "Silver Medal", "Bronze Medal"）。
+
+(注：分数越高的选手，排名越靠前。)
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+	int n,i,j,a[10000],index,t,count=0;
+	printf("input n:\n");
+	scanf("%d",&n);
+	printf("input a:\n");
+	for(i=0;i<n;i++)
+	 scanf("%d",&a[i]);
+	printf("Gold Medal ");
+	printf("Silver Medal ");
+	printf("Bronze Medal ");
+	for(i=0;i<n;i++)
+	{
+		index=i;
+		for(j=i+1;j<n;j++)
+		{
+			if(a[index]<a[j])
+			 index=j;
+		}
+		count++;
+		if(count>=4)
+		 printf("%d ",index+1);
+		 
+	}
+	return 0;
+}
