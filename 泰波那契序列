@@ -1,0 +1,38 @@
+泰波那契序列 Tn 定义如下： 
+
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+
+给你整数 n，请返回第 n 个泰波那契数 Tn 的值。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+double t(int n);
+int main(void)
+{
+	int n,i;
+	double result;
+	printf("input n:\n");
+	scanf("%d",&n);
+	result=t(n);
+	printf("%.0lf",result);
+	return 0;
+}
+double t(int n)
+{
+	int result,t1=0,t2=1,t3=1;
+	if(n==1)
+	{
+	 result=t2;
+    }
+	if(n==2)
+	{
+	 result=t3;
+    }
+	if(n==3)
+	{
+      result=t1+t2+t3;
+    }
+    if(n>3)
+     result=t(n-3)+t(n-2)+t(n-1);
+    return result;
+}
