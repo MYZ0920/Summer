@@ -1,0 +1,33 @@
+珠玑妙算游戏（the game of master mind）的玩法如下。
+计算机有4个槽，每个槽放一个球，颜色可能是红色（R）、黄色（Y）、绿色（G）或蓝色（B）。例如，计算机可能有RGGB 4种（槽1为红色，槽2、3为绿色，槽4为蓝色）。作为用户，你试图猜出颜色组合。打个比方，你可能会猜YRGB。要是猜对某个槽的颜色，则算一次“猜中”；要是只猜对颜色但槽位猜错了，则算一次“伪猜中”。注意，“猜中”不能算入“伪猜中”。
+给定一种颜色组合solution和一个猜测guess，编写一个方法，返回猜中和伪猜中的次数answer，其中answer[0]为猜中的次数，answer[1]为伪猜中的次数。
+
+来源：力扣（LeetCode）
+#include<stdio.h>
+int main(void)
+{
+   char solution[5],guess[5];
+   int i=0,j,ans[2]={0,0};
+   printf("input solution,guess:\n");
+   gets(solution);
+   gets(guess);
+   while(guess[i]!='\0')
+   {
+   	  if(solution[i]==guess[i])
+   	   ans[0]++;
+   	  else
+   	  {
+   	     for(j=0;j<5;j++)
+   	     {
+   	     	if(guess[i]==solution[j]&&i!=j)
+   	     	{
+   	     	 ans[1]++;
+   	        }
+		 }
+   	  }
+   	  i++;
+   }
+   for(i=0;i<2;i++)
+    printf("%d ",ans[i]);
+   return 0;
+} 
