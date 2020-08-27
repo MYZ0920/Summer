@@ -1,0 +1,31 @@
+void lookup(mynode *head)
+{
+	mynode *temp;
+	int ID;
+	int flag=0;
+	printf("please input the lookup ID:\n"); 
+	scanf("%d",&ID);
+	temp=head;
+	if(temp->ID ==ID)
+	{
+		printf("%d    %c    %d    %s    %s\n", temp->ID  ,temp->Name  ,temp->age  ,temp->sex ,temp->major);
+		flag=1;
+	}
+	else
+	{
+		while(temp!=NULL)
+		{
+		   if(temp->ID ==ID)
+	       {
+		      printf("%d    %c    %d    %s    %s\n",temp->ID  ,temp->Name  ,temp->age  ,temp->sex ,temp->major  );
+		      flag=1;
+		      break;
+	       }
+	       temp=temp->next;
+		}
+	}
+	if(flag==0)
+	  printf("can not find the ID\n");
+	else
+	  printf("lookup success\n");
+}
