@@ -1,0 +1,65 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct MyNode
+{
+	int ID;
+	char Name;
+	int age;
+	char sex[10];
+	char major[20];
+	struct MyNode *next;
+}; 
+typedef struct MyNode mynode;
+void printfmenu();
+mynode *addnode(mynode *head,mynode *p);
+mynode *ReadFromFile();
+void WriteToFile(mynode *head);
+void Display(mynode *head);
+mynode *InputRecord(mynode *head);
+int main(void)
+{
+	int choice;
+	mynode *h;
+	printf("please input your choice:\n");
+	printfmenu();
+	scanf("%d",&choice);
+	while(choice!=0)
+	{
+		switch(choice)
+		{
+			case 1:h=ReadFromFile();break;
+			case 2:WriteToFile(h);  break;
+			case 3:Display(h) ;     break;
+			case 4:InputRecord(h);  break;
+			case 5:DeleteRecord(h); break;
+			case 6:lookup(h);       break;
+			case 7:update(h);       break;
+		}
+		printf("please input your choice:\n");
+		printfmenu();
+	    scanf("%d",&choice);
+	}
+	return 0;
+}
+mynode *InputRecord(mynode *head)
+{
+	mynode *p;
+	int ID;
+	char Name;
+	int age;
+	char sex[10];
+	char major[20];
+	printf("please input the add ID,Name,age,sex,major:\n");
+	scanf("%d%c%d%s%s",&ID,&Name,&age,sex,major);
+	p=(mynode *)malloc(sizeof(mynode));
+	p->next=NULL;
+	p->ID =ID;
+	p->Name =Name;
+	p->age =age;
+	strcpy(p->sex ,sex);
+	strcpy(p->major ,major);
+	head=addnode(head,p);
+	printf("input success\n");
+	return head;
+}
