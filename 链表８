@@ -1,0 +1,36 @@
+mynode *update(mynode *head)
+{
+	mynode *temp;
+	int ID;
+	char major[20];
+	int flag=0;
+	printf("please input the update ID:\n"); 
+	scanf("%d",&ID);
+	temp=head;
+	if(temp->ID ==ID)
+	{
+		printf("please input the new major\n");
+		scanf("%s",major);
+		strcpy(temp->major ,major);
+		flag=1;
+	}
+	else
+	{
+		while(temp!=NULL)
+		{
+		   if(temp->ID ==ID)
+	       {
+		      printf("please input the new major\n");
+		      scanf("%s",major);
+		      strcpy(temp->major ,major);
+		      flag=1;
+		      break;
+	       }
+	       temp=temp->next;
+		}
+	}
+	if(flag==0)
+	  printf("can not find the ID\n");
+	else
+	  printf("update success\n");
+}
