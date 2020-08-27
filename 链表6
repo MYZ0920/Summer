@@ -1,0 +1,36 @@
+mynode *DeleteRecord(mynode *head)
+{
+	mynode *p1,*p2;
+	int ID;
+	int flag=0;
+	printf("please input the del ID:\n");
+	scanf("%d",&ID);
+	p2=head;
+	if(p2->ID ==ID)
+	{
+		head=head->next;
+		free(p2);
+		flag=1;
+		printf("del success\n");
+		return head;
+	}
+	p1=head;
+	p2=head->next;
+	while(p2!=NULL)
+	{
+		if(p2->ID ==ID)
+		{
+			p1->next=p2->next;
+			free(p2);
+			flag=1;
+			break;
+		}
+		p1=p2;
+		p2=p1->next;
+	}
+	if(flag==0)
+	 printf("can not find the ID\n");
+	else
+	 printf("del success\n");
+	return head;
+}
