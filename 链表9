@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct MyNode
+{
+	int ID;
+	char Name;
+	int age;
+	char sex[10];
+	char major[20];
+	struct MyNode *next;
+}; 
+typedef struct MyNode mynode;
+void printfmenu();
+mynode *addnode(mynode *head,mynode *p);
+mynode *ReadFromFile();
+void WriteToFile(mynode *head);
+void Display(mynode *head);
+mynode *InputRecord(mynode *head);
+mynode *DeleteRecord(mynode *head);
+void lookup(mynode *head);
+mynode *update(mynode *head);
+int main(void)
+{
+	int choice;
+	mynode *h;
+	printf("please input your choice:\n");
+	printfmenu();
+	scanf("%d",&choice);
+	while(choice!=0)
+	{
+		switch(choice)
+		{
+			case 1:h=ReadFromFile();break;
+			case 2:WriteToFile(h);  break;
+			case 3:Display(h) ;     break;
+			case 4:InputRecord(h);  break;
+			case 5:DeleteRecord(h); break;
+			case 6:lookup(h);       break;
+			case 7:update(h);       break;
+		}
+		printf("please input your choice:\n");
+		printfmenu();
+	    scanf("%d",&choice);
+	}
+	return 0;
+}
+void printfmenu()
+{
+	printf("************************************\n");
+	printf("1:read    2:write    3:display\n");
+	printf("4:input   5:del      6:lookup\n ");
+	printf("7:update             0:exit\n");
+	printf("************************************\n");
+}
